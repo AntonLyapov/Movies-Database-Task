@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mdt</title>
+	<%= csrf_meta_tags %>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+	<%= render 'layouts/header' %>
+	
+	<div class="container container d-flex flex-column" id="main-container">
+		<main>
+			<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert alert-#{name == 'notice' ? 'info' : 'danger'}") %>
+			<% end %>
+
+			<%= yield %>
+		</main>
+
+		<footer class="footer mt-auto">
+			<hr>
+			<p>© Movies Database Task 2017</p>
+		</footer>
+	</div>
+</body>
+</html>

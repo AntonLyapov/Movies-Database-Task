@@ -1,0 +1,10 @@
+<h1>New Comment</h1>
+
+<%= render 'form', comment: @comment %>
+<br>
+m: <%= @movie.title %>
+<br>
+u: <%= @user.name %>
+<br>
+
+<%= link_to 'Back', comments_path %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @movie.title %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @movie.year %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @movie.description %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @movie.genre %>
+</p>
+
+<%= link_to 'New comment', new_movie_comment_path(@movie), class: 'btn btn-outline-secondary mr-1' %>
+
+<br/><br/>
+<h3>Comments</h3>
+<% @movie.comments.each do |comment| %>
+  <%= render comment, comment: comment%>
+<% end %>	
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
